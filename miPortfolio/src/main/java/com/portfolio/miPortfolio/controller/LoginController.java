@@ -41,6 +41,11 @@ public class LoginController {
     public String verProyectos() {
         return "API Alive";
     }
+    
+    @PostMapping("login/estado")
+    public ResponseEntity<String> estado(){
+        return new ResponseEntity("Chequeo de sesion", HttpStatus.OK);
+    }
 
     @PostMapping("/login")
     public ResponseEntity<Usuarios> login(@RequestParam("user") String username, @RequestParam("password") String pwd) {
@@ -61,7 +66,7 @@ public class LoginController {
     }
 
     private String getJWTToken(String username) {
-        String secretKey = "mySecretKey";
+        String secretKey = "ne#Bh%";
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
                 .commaSeparatedStringToAuthorityList("ROLE_USER");
 
@@ -74,7 +79,7 @@ public class LoginController {
                                 .map(GrantedAuthority::getAuthority)
                                 .collect(Collectors.toList()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 600000))
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
                 .signWith(SignatureAlgorithm.HS512,
                         secretKey.getBytes()).compact();
 

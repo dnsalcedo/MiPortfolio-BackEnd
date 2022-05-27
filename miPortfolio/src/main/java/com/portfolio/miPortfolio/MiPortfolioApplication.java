@@ -27,6 +27,7 @@ public class MiPortfolioApplication {
             http.cors().and().csrf().disable()
                     .authorizeRequests()
                     .antMatchers("/api/login").permitAll()
+                    .antMatchers("/api/login/estado").permitAll()
                     .antMatchers(HttpMethod.GET).permitAll()
                     .anyRequest().authenticated()
                     .and()
