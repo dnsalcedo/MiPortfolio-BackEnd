@@ -33,6 +33,7 @@ public class InformacionPersonal {
     @Column(nullable = false, columnDefinition = "text")
     private String presentacion;
     private String fotoPerfil;
+    private String fotoBanner;
     @Column(nullable = false)
     private String usuarios_idusuario ;
     
@@ -40,10 +41,11 @@ public class InformacionPersonal {
     
     }
     
-    public InformacionPersonal (Long id, String nombre, String presentacion, String fotoPerfil){
+    public InformacionPersonal (Long id, String nombre, String presentacion, String fotoPerfil, String fotoBanner){
         this.id = id;
         this.nombre = nombre;
         this.presentacion = presentacion; 
         this.fotoPerfil = fotoPerfil;
+        this.fotoBanner = fotoBanner;
     }
 }
